@@ -20,12 +20,12 @@ probs_13 <- seats_13 %>%
             c("spd"), c("spd", "left"), c("spd", "left", "greens")))
 seats_13 <- mutate(seats_13,
   party= factor(party, levels=c("cdu", "spd", "greens", "fdp", "left", "pirates", "afd", "others"),
-    labels=prettify_en(c("cdu", "spd", "greens", "fdp", "left", "pirates", "afd", "others"))))
+    labels=coalitions:::prettify_en(c("cdu", "spd", "greens", "fdp", "left", "pirates", "afd", "others"))))
 probs_13 <- mutate(probs_13,
-  coalition = factor(coalition, levels=coalition, labels=prettify_en(coalition)))
+  coalition = factor(coalition, levels=coalition, labels=coalitions:::prettify_en(coalition)))
 
 forsa_13 <- mutate(forsa_13,
-  party = factor(party, levels=party, labels=prettify_en(party)),
+  party = factor(party, levels=party, labels=coalitions:::prettify_en(party)),
   percent = percent * 100)
 saveRDS(forsa_13, "forsa_13.Rds")
 saveRDS(seats_13, "forsa_seats_13.Rds")
@@ -34,7 +34,7 @@ saveRDS(probs_13, "forsa_probs_13.Rds")
 forsa_tab_1 <- forsa_13[, 1:2] %>%
   select(party=party, share=percent) %>%
   mutate(
-    party = factor(party, levels=party, labels=prettify_en(party)),
+    party = factor(party, levels=party, labels=coalitions:::prettify_en(party)),
     share = str_pad(paste0(share * 100, "%"), 3)) %>%
   spread(party, share)
 saveRDS(forsa_tab_1, "forsa_tab_1.Rds")

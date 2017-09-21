@@ -113,12 +113,12 @@ To answer these questions, pundits and writers usually focus on raw voting inten
 &nbsp;
 
 ```{r, warning=FALSE, echo=FALSE}
-latest <- get_latest() %>%
+latest <- coalitions:::get_latest() %>%
 	select(-start, -end) %>%
 	unnest() %>%
 	select(-votes) %>%
 	mutate(
-		party   = prettify_en(party),
+		party   = coalitions:::prettify_en(party),
 		percent = paste0(percent, "%"))
 # kable(latest, format="html", align=c("lrrlr"))
 forsa_tab1 <- readRDS("forsa_tab_1.Rds")
@@ -160,12 +160,12 @@ background-size: 150px
 ```{r echo=FALSE, results="asis", fig.width=8, fig.height=5, fig.align = "center", message=FALSE}
 forsa_13 <- readRDS("forsa_13.Rds") %>%
 	mutate(
-		party = factor(party, levels=party, labels=prettify_en(party)) ,
+		party = factor(party, levels=party, labels=coalitions:::prettify_en(party)) ,
 		percent = round(percent * 100, 1))
 forsa_tab1 <- readRDS("forsa_tab_1.Rds")
 kable(forsa_tab1, format="html", caption="Last FORSA poll before the 2013 election (September, 20th); n = 1995", align="rrrrrrr")
 
-names(.party_cols_de) <- prettify_en(names(.party_cols_de))
+names(.party_cols_de) <- coalitions:::prettify_en(names(.party_cols_de))
 ggplot(forsa_13,
 	aes(x=party, y=percent, fill=party)) +
 	geom_bar(stat="identity") +
