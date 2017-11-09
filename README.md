@@ -1,7 +1,7 @@
 # Coalition Analysis (KOALA) 2017
 Slides presented at AppliedR MeetUp September 20th, 2017
 
-- Rendered slides: [https://adibender.netlify.com/slides/appliedr-slides#1](https://adibender.netlify.com/slides/appliedr-slides#1)
+- Rendered slides: [https://adibender.netlify.com/slides/appliedr/koala17/appliedr-slides#1](https://adibender.netlify.com/slides/appliedr/koala17/appliedr-slides#1)
 - Analyses are based on the [`coalitions`](https://adibender.github.io/coalitions/) package.
 - Shiny App: [http://koala.stat.uni-muenchen.de/](http://koala.stat.uni-muenchen.de/)
 - Updates on Twitter: [@KOALA_LMU](https://twitter.com/KOALA_LMU)
